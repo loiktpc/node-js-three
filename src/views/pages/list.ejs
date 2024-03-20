@@ -1,0 +1,29 @@
+<%- include('../layout/header.ejs'); %>
+
+<table class="table" style="margin-top: 20px;">
+    <thead>
+      <tr>
+        <th scope="col">#id</th>
+        <th scope="col">lastName</th>
+        <th scope="col">thao tác</th>
+        <th scope="col">Handle</th>
+      </tr>
+    </thead>
+    <tbody>
+        <% Getdatausers.forEach((items)=>{ %>
+      <tr>
+        <th scope="row"><%= items.id %></th>
+        <td><%= items.lastName %></td>
+        <td>
+            <a href="/edituser/<%= items.id %>">
+              <button type="button" class="btn btn-primary">edit</button>
+            </a>
+            <a href="/deleteuser/<%= items.id %>">
+
+                <button type="button" class="btn btn-danger">delete</button></td>
+            </a>
+            <td><%= items.password %></td>
+      </tr>
+      <% }); %>
+    </tbody>
+  </table>

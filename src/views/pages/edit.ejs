@@ -1,0 +1,10 @@
+<main>
+    <h1>edit</h1>
+ 
+    <form action="/handleUpdate" method="post">
+        <label for="lastName">First lastName:</label><br />
+        <input type="text" id="lastName" name="lastName" value="<%= infouser.lastName %>" /><br />
+        <input type="text" name="id" id="" value="<%= infouser.id %>">
+        <input type="submit" value="Submit" />
+    </form>
+</main>
