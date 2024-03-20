@@ -1,11 +1,12 @@
 import express from 'express';
-import {HomePage , userpost ,deleteuser , useredit , handleUpdate} from '../controller/homeController'
+import {HomePage , userpost ,deleteuser , useredit , handleUpdate , homejson} from '../controller/homeController'
 import {HandleLogin} from '../controller/usersController' ;
 import {validatorUserLogin} from "../validator/userValidate" ;
 let router = express.Router(); 
 
 let initWebRouter = (app) => {
     router.get('/', HomePage);
+    router.get('/home', homejson);
     router.post('/userpost', userpost);
     router.get('/deleteuser/:id', deleteuser);
     router.get('/edituser/:id', useredit);

@@ -58,10 +58,14 @@ const handleUpdate = async (req, res) => {
         console.log(error);
     }
 }
+const homejson = async (req, res) => {
+    return res.status(200).json({title : 'đây là trang home' , name : 'kim thanh loi'});
+}
 module.exports = {
     HomePage,
     userpost,
     deleteuser,
     useredit, 
-    handleUpdate
+    handleUpdate ,
+    homejson
 };
