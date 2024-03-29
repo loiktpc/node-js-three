@@ -9,23 +9,24 @@ const userSchema = new mongoose.Schema({
     },
     firstName: {
         type: String,
-        // required: true,
+        required: true,
     },
     address: {
         type: String,
-        // required: true,
+        required: true,
     },
     email: {
         type: String,
-        // required: true,
+        required: true,
+        unique: true,
     },
     password: {
         type: String,
-        // required: true,
+        required: true,
     },
     gender: {
         type: Boolean,
-        // required: true,
+        required: true,
     },
 
     created_at: {
@@ -34,11 +35,11 @@ const userSchema = new mongoose.Schema({
     },
     roleId: {
         type: String,
-        // required: true,
+        required: true,
     },
     phonenumber: {
         type: String,
-        // required: true,
+        required: true,
     },
     // vị trí
     positionId: {
@@ -55,4 +56,4 @@ const userSchema = new mongoose.Schema({
 // Tạo Model từ Schema
 const User = mongoose.model("user", userSchema);
 
-module.exports = User; // Export Model để có thể sử dụng ở những nơi khác trong ứng dụng của bạn
+module.exports = User; 

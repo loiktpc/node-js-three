@@ -1,7 +1,8 @@
 import express from 'express';
 import {HomePage , userpost ,deleteuser , useredit , handleUpdate , homejson} from '../controller/homeController'
-import {HandleLogin} from '../controller/usersController' ;
+import {HandleLogin ,GetAllUser , CreatedUser , deleteUserAPI , updateUserAPI , getDetailInfoUser} from '../controller/api/usersController' ;
 import {validatorUserLogin} from "../validator/userValidate" ;
+import {verifyToken , refreshToken} from "../services/userServices" ;
 let router = express.Router(); 
 
 let initWebRouter = (app) => {
@@ -12,8 +13,16 @@ let initWebRouter = (app) => {
     router.get('/edituser/:id', useredit);
     router.post('/handleUpdate', handleUpdate);
     
-
+    // API 
+    // get all và get one 
+    router.get('/api/getAlluser' ,GetAllUser);
+    router.get('/api/getdetailinfouser/:id' ,getDetailInfoUser);
     router.post('/api/login', validatorUserLogin ,HandleLogin);
+    router.post('/api/GetrefreshToken', refreshToken);
+    router.post('/api/users',CreatedUser);
+    router.delete('/api/users/:id',deleteUserAPI);
+    router.put('/api/users/:id',updateUserAPI);
+
     return app.use("/",router) ;
 }
 
